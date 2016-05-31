@@ -3,7 +3,7 @@ import {expect} from 'chai';
 
 import reducer from '../src/reducer';
 
-describe.only('reducer', () => {
+describe('reducer', () => {
     it('has an initial state', () => {
         const action = {type: 'SET_ENTRIES', entries: ['Trainspotting']};
         const nextState = reducer(undefined, action);
