@@ -19,7 +19,9 @@ export function getWinners(vote) {
 export function next(state) {
     const entries = state.get('entries').concat(getWinners(state.get('vote')));
     if (entries.size === 1) {
-        return state.remove('vote').remove('entries').set('winner', entries.first());
+        return state.remove('vote')
+                    .remove('entries')
+                    .set('winner', entries.first());
     } else {
         return state.merge({
             vote: Map({pair: entries.take(2)}),
@@ -30,7 +32,7 @@ export function next(state) {
 
 export function vote(state, entry) {
     return state.updateIn(
-        ['vote', 'tally', entry],
+        ['tally', entry],
         0,
         tally => tally + 1
     );
