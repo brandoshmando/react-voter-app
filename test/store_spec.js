@@ -9,10 +9,12 @@ describe('store', () =>{
         const store = makeStore();
         expect(store.getState()).to.equal(Map());
 
-        store.dispatch({
+        const action = {
             type: 'SET_ENTRIES',
             entries: ['Trainspotting',  '28 Days Later']
-        });
+        }
+
+        store.dispatch(action);
         expect(store.getState()).to.equal(fromJS({
             entries: ['Trainspotting', '28 Days Later']
         }));
